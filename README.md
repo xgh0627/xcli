@@ -1,4 +1,4 @@
-# Geektime Rust 语言训练营
+# a Rust Tool Cli
 
 ## 环境设置
 
