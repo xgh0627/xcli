@@ -6,9 +6,9 @@ pub use self::{csv::*};
 
 #[derive(Debug,Parser)]
 #[command(name = "xcli", version, author, about, long_about = None)]
-struct Opts {
+pub struct Opts {
      #[command(subcommand)]
-     cmd: SubCommand,
+     pub cmd: SubCommand,
 }
 
 #[derive(Debug,Parser)]
@@ -22,5 +22,16 @@ fn verify_file(filename: &str) -> Result<String,&'static str> {
         Ok(filename.into())
     }else{
         Err("file not found")
+    }
+}
+
+#[cfg(test)]
+mod tests {
+
+    use super::*;
+
+    #[test]
+    fn test_verify_input_file() {
+        assert_eq!(verify_file("-"),Ok("-".into()));
     }
 }
