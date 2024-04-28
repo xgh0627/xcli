@@ -29,7 +29,7 @@ impl CmdExector for CsvOpts {
         }else{
             format!("output.{}",self.format)
         };
-        crate::process_csv(&self.input,output,self.format);
+        crate::process_csv(&self.input,output,self.format)?;
         Ok(())
     }
 }
